@@ -1,0 +1,7 @@
+In order to prevent changes made to the original
+object a copy of the same object could be made.
+The changes would be made on the copy and the original
+object would still exist if it is desired to be used.
+
+lookupByLastName will also have this problem and each
+returned object would need to be copied like in lookupById to fix this.
