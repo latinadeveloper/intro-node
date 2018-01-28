@@ -1,1 +1,4 @@
-CS602_HW1_tejeda/node_modules
+**/node_modules
+**/.DS_Store
+*.zip
+

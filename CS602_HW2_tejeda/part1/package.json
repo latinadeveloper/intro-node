@@ -1,0 +1,15 @@
+{
+  "name": "cs602_hw2_part1",
+  "version": "1.0.0",
+  "description": "hw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isis Tejeda",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "underscore": "^1.8.3"
+  }
+}
