@@ -12,21 +12,21 @@ const server = net.createServer(
 
 		// process data from client
 		socket.on('data', data => {
-        let command_string = data.toString() // 'addEmployee Migas Harris'
+        let command_string = data.toString() // 'addEmployee Migas Harris', client command received
 				console.log("...Received ", command_string);
         let command_array = command_string.split(' ') // [ 'addEmployee', 'Migas', 'Harris' ]
         let result;
         if (command_array[0] == 'lookupById') {
-          result = employeeModule.lookupById(parseInt(command_array[1]))
+          result = employeeModule.lookupById(parseInt(command_array[1])) //function called if lookupById
         } else if (command_array[0] == 'addEmployee') {
-          result = employeeModule.addEmployee(command_array[1], command_array[2])
+          result = employeeModule.addEmployee(command_array[1], command_array[2]) // function called if addEmployee
         } else if (command_array[0] == 'lookupByLastName') {
-          result = employeeModule.lookupByLastName(command_array[1])
+          result = employeeModule.lookupByLastName(command_array[1]) // function called lookupByLastName
         } else {
           result = "Invalid request"
         }
 
-        socket.write(JSON.stringify(result))
+        socket.write(JSON.stringify(result)) // sends the result back to the client
 			});
 
 	});
