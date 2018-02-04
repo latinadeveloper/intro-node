@@ -5,7 +5,15 @@
   </thead>
   <tbody>
     {{#each employees}}
-    	<tr><td>{{{this.id}}}</td><td>{{{this.firstName}}}</td><td>{{{this.lastName}}}</td></tr>
+    	<tr>
+        <td>{{{this.id}}}</td>
+        <td>{{{this.firstName}}}</td>
+        <td>{{{this.lastName}}}</td>
+        <td>
+          <a href="/employees/edit/{{this.id}}">Edit</a>
+          <a href="/employees/delete/{{this.id}}">Delete</a>
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>
