@@ -37,7 +37,7 @@ module.exports = {
 		});
 	},
 
-	editEmployee: (req , res , next) => {
+	editEmployee: (req , res , next) => { // edits employee in the database
 	    let id = req.params.id;
 
 	    Employee.findById(id, (err, employee) => {
@@ -55,7 +55,7 @@ module.exports = {
 	    });
 	},
 
-	saveAfterEdit: (req , res , next) => {
+	saveAfterEdit: (req , res , next) => {  // saves the changes after the edit is made
 	    let id = req.params.id;
 
 	    Employee.findById(id, (err, employee) => {
@@ -74,7 +74,7 @@ module.exports = {
 	    });
 	  },
 
-	displayEmployees: (req , res , next) => {
+	displayEmployees: (req , res , next) => { // shows all of the employees
 		    Employee.find({}, (err , employees) => {
 		      if(err)
 		          console.log("Error : %s ",err);

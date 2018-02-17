@@ -4,4 +4,4 @@ const credentials = require("./credentials.js");
 const dbUrl = 'mongodb://' + credentials.username +
 	':' + credentials.password + '@' + credentials.host + ':' + credentials.port + '/' + credentials.database;
 
-module.exports = mongoose.createConnection(dbUrl);
+module.exports = mongoose.createConnection(dbUrl); // exporting mongoose connection
