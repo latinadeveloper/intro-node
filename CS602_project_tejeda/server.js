@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routing
-var routes = require('./product/index');
-app.use('/products', routes);
+var routes = require('./product/admin');
+app.use('/admin/products', routes);
 
 app.get('/', (req, res, next) => {
-  res.redirect('/products');
+  res.redirect('/admin/products');
 });
 
 app.use((req, res) => {
