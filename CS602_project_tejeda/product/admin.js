@@ -7,7 +7,16 @@ const Product  = require('./schema.js');
 // products routes
 
 router.get('/', (req , res , next) => { // shows all of the products
-  Product.find({}, (err , products) => {
+  const name = req.query.name;
+  const description = req.query.description;
+  var query = {};
+  if (name && name != '') {
+    query.name = new RegExp(name);
+  }
+  if (description && description != '') {
+    query.description = new RegExp(description);
+  }
+  Product.find(query, (err , products) => {
     if(err)
         console.log("Error : %s ",err);
 
@@ -21,7 +30,7 @@ router.get('/', (req , res , next) => { // shows all of the products
       }
     });
 
-    res.render('product/admin/index', {products: results});
+    res.render('product/admin/index', {products: results, name: name, description: description});
   });
 });
 
