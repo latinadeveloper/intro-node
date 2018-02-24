@@ -28,17 +28,21 @@ const sessionInfo = require("./credentials.js").session;
 app.use(cookieSession(sessionInfo));
 
 // Routing
-const productAdminRoutes = require('./product/admin');
-app.use('/admin/products', productAdminRoutes);
-
 const productCustomerRoutes = require('./product/customer');
 app.use('/products', productCustomerRoutes);
 
 const cartRoutes = require('./customer/cart');
 app.use('/cart', cartRoutes);
 
+const productAdminRoutes = require('./product/admin');
+app.use('/admin/products', productAdminRoutes);
+
+const customerAdminRoutes = require('./customer/admin');
+app.use('/admin/customers', customerAdminRoutes);
+
+// Handles both /orders and /admin/customers/*/orders
 const ordersRoutes = require('./customer/orders');
-app.use('/orders', ordersRoutes);
+app.use('/', ordersRoutes);
 
 app.get('/', (req, res, next) => {
   res.render('index');
