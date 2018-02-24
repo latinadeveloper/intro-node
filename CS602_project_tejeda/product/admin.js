@@ -1,38 +1,11 @@
 const express = require('express');
 const router = express.Router();
-//const productModule = require("./productModule");
-
 const Product  = require('./schema.js');
+const searchAction = require('./search.js');
 
 // products routes
 
-router.get('/', (req , res , next) => { // shows all of the products
-  const name = req.query.name;
-  const description = req.query.description;
-  var query = {};
-  if (name && name != '') {
-    query.name = new RegExp(name);
-  }
-  if (description && description != '') {
-    query.description = new RegExp(description);
-  }
-  Product.find(query, (err , products) => {
-    if(err)
-        console.log("Error : %s ",err);
-
-    let results = products.map( (product) => {
-      return {
-        id: product._id,
-        name: product.name,
-        stock: product.stock,
-        description: product.description,
-        price: product.price
-      }
-    });
-
-    res.render('product/admin/index', {products: results, name: name, description: description});
-  });
-});
+router.get('/', searchAction('product/admin/index'));
 
 router.get('/add', (req , res , next) => {
   res.render('product/admin/add') // render add product static page with form
