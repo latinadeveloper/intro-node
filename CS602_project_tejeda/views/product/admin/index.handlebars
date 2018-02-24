@@ -1,0 +1,27 @@
+<h3>Products {{{name}}}</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Stock</td>
+      <td>Description</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    	<tr>
+        <td>{{{this.id}}}</td>
+        <td>{{{this.name}}}</td>
+        <td>{{{this.stock}}}</td>
+        <td>{{{this.description}}}</td>
+        <td>{{{this.price}}}</td>
+        <td>
+          <a href="/admin/products/edit/{{this.id}}">Edit</a>
+          <a href="/admin/products/delete/{{this.id}}">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
