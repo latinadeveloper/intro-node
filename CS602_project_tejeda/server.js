@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// calling in public folder
+app.use(express.static('public'))
+
 // setup handlebars view engine
 const handlebars = require('express-handlebars');
 

@@ -25,6 +25,7 @@ router.post('/', (req , res , next) => {  // saves the changes after the edit is
     });
   } else {
     // Create new customer
+    const orderItem = { product: productId, quantity: quantity };
     let customer = new Customer({
       cart: [orderItem],
       orders: [],
@@ -71,9 +72,13 @@ router.get('/', (req , res , next) => {
   let customerId = req.session.customerId;
 
   Customer.findById(customerId).populate('cart.product').exec((err, customer) => {
-    const cart = customer.cart;
-    const total = doTotal(cart);
-    res.render('customer/cart', { total: total, items: customer.cart })
+    if (customer && customer.cart && customer.cart.length > 0) {
+      const cart = customer.cart;
+      const total = doTotal(cart);
+      res.render('customer/cart', { total: total, items: customer.cart })
+    } else {
+      res.render('customer/cart_empty')
+    }
   });
 })
 

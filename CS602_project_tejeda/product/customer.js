@@ -21,7 +21,8 @@ router.get('/:id', (req , res , next) => {  // saves the changes after the edit 
                 name: product.name,
                 stock: product.stock,
                 description: product.description,
-                price: product.price
+                price: product.price,
+                color: product.color
                }
         });
   });

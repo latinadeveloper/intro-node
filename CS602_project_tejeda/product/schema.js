@@ -20,7 +20,8 @@ const productSchema = new Schema({
 		type: Number,
 		min: 0,
 		required: true
-	}
+	},
+	color: String
 });
 
 /*module.exports = {  // taken out since there is only one connection

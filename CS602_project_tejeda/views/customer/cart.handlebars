@@ -1,12 +1,12 @@
 <h3>Cart</h3>
 <form method="POST" action="/cart/update">
-<table>
+<table class="table">
   <thead>
     <tr>
-      <td>Product Name</td>
-      <td>Quantity</td>
-      <td>Price</td>
-      <td>Total</td>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
   <input type="submit" width="100" value="Update">
 </form>
 
-Total: {{formatNumber total style="currency" currency="USD"}}
+<h4>Total: {{formatNumber total style="currency" currency="USD"}}</h4>
 
 <form method="POST" action="/orders">
   <input type="submit" width="100" value="Order">

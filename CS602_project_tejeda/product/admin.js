@@ -12,11 +12,13 @@ router.get('/add', (req , res , next) => {
 });
 
 router.post('/add', (req , res , next) => {
+  console.log(req.body.color)
   let product = new Product({
     name: req.body.name,
     stock: req.body.stock,
     description: req.body.description,
-    price: req.body.price
+    price: req.body.price,
+    color: req.body.color
   });
 
   product.save((err) => {
@@ -42,7 +44,8 @@ router.get('/edit/:id', (req , res , next) => { // edits product in the database
                 name: product.name,
                 stock: product.stock,
                 description: product.description,
-                price: product.price
+                price: product.price,
+                color: product.color
                }
         });
   });
@@ -57,10 +60,13 @@ router.post('/edit/:id', (req , res , next) => {  // saves the changes after the
     if (!product)
       return res.render('404');
 
+    console.log(req.body)
+
     product.name = req.body.name;
     product.stock = req.body.stock;
     product.description = req.body.description;
     product.price = req.body.price;
+    product.color = req.body.color
     product.save((err) => {
       if(err)
         res.status(400).send(err);

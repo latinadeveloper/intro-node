@@ -37,7 +37,8 @@ module.exports = (template) => {
           name: product.name,
           stock: product.stock,
           description: product.description,
-          price: product.price
+          price: product.price,
+          color: product.color
         }
       });
 
@@ -77,7 +78,9 @@ module.exports = (template) => {
           res.render(template, {
             products: results,
             name: name,
-            description: description
+            description: description,
+            min: min,
+            max: max
           });
         },
       })
