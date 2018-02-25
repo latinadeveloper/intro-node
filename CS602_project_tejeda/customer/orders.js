@@ -59,7 +59,7 @@ showOrder = (req , res , next) => {
   });
 }
 router.get('/orders/:id', showOrder)
-router.get('/admin/customers/:customerId/orders/:id', showOrder);
+//router.get('/admin/customers/:customerId/orders/:id', showOrder);
 
 router.get('/admin/customers/:customerId/orders/:id/delete', (req , res , next) => {
   const customerId = req.params.customerId;

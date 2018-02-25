@@ -1,4 +1,5 @@
 <h3>Cart</h3>
+<form method="POST" action="/cart/update">
 <table>
   <thead>
     <tr>
@@ -12,13 +13,15 @@
     {{#each items}}
     	<tr>
         <td><a href="/products/{{this.product._id}}">{{this.product.name}}</a></td>
-        <td>{{this.quantity}}</td>
+        <td><input type="number" min="0" name="quantity[{{this.product._id}}]" size="5" value={{this.quantity}}></td>
         <td>{{formatNumber this.product.price style="currency" currency="USD"}}</td>
         <td>{{formatNumber this.totalPrice style="currency" currency="USD"}}</td>
       </tr>
     {{/each}}
   </tbody>
 </table>
+  <input type="submit" width="100" value="Update">
+</form>
 
 Total: {{formatNumber total style="currency" currency="USD"}}
 
