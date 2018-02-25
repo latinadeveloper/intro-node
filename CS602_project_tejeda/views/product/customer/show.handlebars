@@ -1,0 +1,14 @@
+<h1>{{data.name}}</h1>
+<p>{{data.description}}</p>
+<strong>{{formatNumber data.price style="currency" currency="USD"}}</p>
+quantity
+
+{{#if hasStock}}
+  <form method="POST" action="/cart">
+    <input type="hidden" name="productId" value="{{data.id}}">
+    <input type="number" min="1" max="{{data.stock}}" name="quantity" size="3" value="1" required="true">
+    <input type="submit" width="100"/ value="Add to Cart">
+  </form>
+{{else}}
+Out of Stock
+{{/if}}

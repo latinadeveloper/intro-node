@@ -1,0 +1,17 @@
+<h3>Products by ordered count</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Product Name</td>
+      <td>Ordered</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rankings}}
+    	<tr>
+        <td><a href="/products/{{this._id}}">{{this.product.name}}</a></td>
+        <td>{{this.count}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

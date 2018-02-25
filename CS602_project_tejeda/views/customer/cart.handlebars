@@ -1,0 +1,27 @@
+<h3>Cart</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Product Name</td>
+      <td>Quantity</td>
+      <td>Price</td>
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each items}}
+    	<tr>
+        <td><a href="/products/{{this.product._id}}">{{this.product.name}}</a></td>
+        <td>{{this.quantity}}</td>
+        <td>{{formatNumber this.product.price style="currency" currency="USD"}}</td>
+        <td>{{formatNumber this.totalPrice style="currency" currency="USD"}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+Total: {{formatNumber total style="currency" currency="USD"}}
+
+<form method="POST" action="/orders">
+  <input type="submit" width="100" value="Order">
+</form>

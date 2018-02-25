@@ -1,0 +1,27 @@
+<form method="GET">
+  Search <label for="name">Name:</label><input type="text" name="name" size="20" value="{{name}}">
+  -
+  <label for="name">Description:</label><input type="text" name="description" size="30" value={{description}}>
+  <input type="submit"/>
+</form>
+<h3>Customer Products {{{name}}}</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Stock</td>
+      <td>Description</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    	<tr>
+        <td><a href="/products/{{id}}">{{this.name}}</a></td>
+        <td>{{this.stock}}</td>
+        <td>{{this.description}}</td>
+        <td>{{formatNumber this.price style="currency" currency="USD"}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

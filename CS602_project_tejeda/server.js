@@ -44,6 +44,9 @@ app.use('/admin/customers', customerAdminRoutes);
 const ordersRoutes = require('./customer/orders');
 app.use('/', ordersRoutes);
 
+const popularRoutes = require('./popular');
+app.use('/popular', popularRoutes);
+
 app.get('/', (req, res, next) => {
   res.render('index');
 });
